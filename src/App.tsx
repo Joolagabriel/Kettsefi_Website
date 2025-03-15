@@ -6,6 +6,7 @@ import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
 import Process from './components/Team';
 import Contact from './components/Contact';
+import Chatbot from './components/Chatbot';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <div className="container mx-auto px-4 text-center text-gray-600">
           © 2025 Kettsefi Technologies Inc. All rights reserved.
         </div>
+        <Chatbot />
       </footer>
     </div>
   );
