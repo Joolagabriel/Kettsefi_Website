@@ -31,9 +31,11 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
+            <NavLink href="#" isScrolled={isScrolled}>Home</NavLink>
+            <NavLink href="#about" isScrolled={isScrolled}>About</NavLink>
             <NavLink href="#services" isScrolled={isScrolled}>Services</NavLink>
             <NavLink href="#case-studies" isScrolled={isScrolled}>Case Studies</NavLink>
-            <NavLink href="#team" isScrolled={isScrolled}>Team</NavLink>
+            <NavLink href="#process" isScrolled={isScrolled}>Process</NavLink>
             <NavLink href="#contact" isScrolled={isScrolled}>Contact</NavLink>
           </div>
 
@@ -55,14 +57,20 @@ const Navigation = () => {
             className="md:hidden bg-white shadow-lg rounded-lg mt-2 py-4"
           >
             <div className="flex flex-col space-y-4 px-4">
+              <MobileNavLink href="#" onClick={() => setIsMobileMenuOpen(false)}>
+                Home
+              </MobileNavLink>
+              <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>
+                About
+              </MobileNavLink>
               <MobileNavLink href="#services" onClick={() => setIsMobileMenuOpen(false)}>
                 Services
               </MobileNavLink>
               <MobileNavLink href="#case-studies" onClick={() => setIsMobileMenuOpen(false)}>
                 Case Studies
               </MobileNavLink>
-              <MobileNavLink href="#team" onClick={() => setIsMobileMenuOpen(false)}>
-                Team
+              <MobileNavLink href="#process" onClick={() => setIsMobileMenuOpen(false)}>
+                Process
               </MobileNavLink>
               <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
                 Contact

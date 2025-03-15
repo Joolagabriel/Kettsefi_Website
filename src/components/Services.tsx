@@ -3,11 +3,27 @@ import { motion } from 'framer-motion';
 import { Database, Brain, Cloud, BarChart3 } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 
+const WebDevIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="100%"
+    height="100%"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M10 3L3 12l7 9" />
+    <path d="M14 3l7 9-7 9" />
+  </svg>
+);
+
 const services = [
   {
     icon: <Database className="w-12 h-12" />,
-    title: "Data Engineering",
-    description: "Build robust data pipelines and infrastructure for seamless data processing and management.",
+    title: "Data Engineering and Strategy",
+    description: "Develop and execute a strategy for creating optimized pipelines to build robust data pipelines and infrastructure, ensuring seamless data processing and management",
   },
   {
     icon: <BarChart3 className="w-12 h-12" />,
@@ -21,8 +37,13 @@ const services = [
   },
   {
     icon: <Cloud className="w-12 h-12" />,
-    title: "Cloud Services",
-    description: "Scale your operations with secure and efficient cloud infrastructure solutions.",
+    title: "Cloud Services, Consulting and Support",
+    description: "Scale your operations with secure and efficient cloud infrastructure solutions, complemented by expert consulting and support for seamless integration and growth.",
+  },
+  {
+    icon: <div className="w-12 h-12"><WebDevIcon /></div>,
+    title: "Custom Web App Development",
+    description: "Building modern web applications that launch fast and scale with your business needs. Perfect for MVPs, micro SaaS products, custom business apps, and AI-powered tools.",
   },
 ];
 
@@ -44,7 +65,7 @@ const Services = () => {
 
         <div
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8"
         >
           {services.map((service, index) => (
             <motion.div

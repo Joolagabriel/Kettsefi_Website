@@ -3,6 +3,22 @@ import { motion } from 'framer-motion';
 import { Database, Brain, Cloud, BarChart3 } from 'lucide-react';
 import ParticlesBackground from './ParticlesBackground';
 
+const WebDevIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="100%"
+    height="100%"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M10 3L3 12l7 9" />
+    <path d="M14 3l7 9-7 9" />
+  </svg>
+);
+
 const Hero = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 to-blue-900">
@@ -17,6 +33,9 @@ const Hero = () => {
             className="flex justify-center space-x-4 mb-8"
           >
             <Database className="w-12 h-12 text-blue-400" />
+            <div className="w-12 h-12 text-orange-400">
+              <WebDevIcon />
+            </div>
             <Brain className="w-12 h-12 text-purple-400" />
             <Cloud className="w-12 h-12 text-cyan-400" />
             <BarChart3 className="w-12 h-12 text-green-400" />

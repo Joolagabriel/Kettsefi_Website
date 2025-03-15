@@ -1,85 +1,69 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Linkedin, Twitter } from 'lucide-react';
+import { MessageSquare, ClipboardList, Rocket, Heart } from 'lucide-react';
 
-const team = [
+const processes = [
   {
-    name: "Sarah Chen",
-    role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
-    linkedin: "#",
-    twitter: "#",
+    icon: <MessageSquare className="w-12 h-12" />,
+    title: "Free Consultation",
+    description: "Share your vision, define success metrics, set clear goals for your project",
   },
   {
-    name: "Michael Rodriguez",
-    role: "Chief Data Scientist",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80",
-    linkedin: "#",
-    twitter: "#",
+    icon: <ClipboardList className="w-12 h-12" />,
+    title: "Strategic Planning",
+    description: "Build a roadmap, choose the right tech stack, set achievable milestones",
   },
   {
-    name: "Emily Watson",
-    role: "Head of Engineering",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80",
-    linkedin: "#",
-    twitter: "#",
+    icon: <Rocket className="w-12 h-12" />,
+    title: "Development",
+    description: "Build and refine your solution with regular updates and collaborative feedback",
   },
   {
-    name: "David Kim",
-    role: "Cloud Architecture Lead",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
-    linkedin: "#",
-    twitter: "#",
+    icon: <Heart className="w-12 h-12" />,
+    title: "Launch & Support",
+    description: "Deploy seamlessly with thorough testing, documentation and future-proof planning",
   },
 ];
 
-const Team = () => {
+const Process = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <section id="team" className="py-20 bg-white">
+    <section id="process" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Development Process</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Meet the experts behind Kettsefi's success
+            Our proven approach to delivering successful projects
           </p>
         </div>
 
         <div
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0"
         >
-          {team.map((member, index) => (
+          {/* Connection line */}
+          <div className="hidden lg:block absolute top-12 left-[12%] right-[12%] h-0.5 bg-blue-500" />
+          
+          {processes.map((process, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
+              className="text-center relative"
             >
-              <div className="relative mb-6 group">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-48 h-48 rounded-full mx-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-blue-500 bg-opacity-0 group-hover:bg-opacity-20 rounded-full transition-all duration-300"></div>
+              <div className="relative mb-12">
+                <div className="w-24 h-24 rounded-full bg-blue-500 mx-auto flex items-center justify-center text-white">
+                  {process.icon}
+                </div>
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-              <p className="text-gray-600 mb-4">{member.role}</p>
-              <div className="flex justify-center space-x-4">
-                <a href={member.linkedin} className="text-gray-600 hover:text-blue-500 transition-colors">
-                  <Linkedin className="w-6 h-6" />
-                </a>
-                <a href={member.twitter} className="text-gray-600 hover:text-blue-500 transition-colors">
-                  <Twitter className="w-6 h-6" />
-                </a>
-              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">{process.title}</h3>
+              <p className="text-gray-600">{process.description}</p>
             </motion.div>
           ))}
         </div>
@@ -88,4 +72,5 @@ const Team = () => {
   );
 };
 
-export default Team;
+
+export default Process

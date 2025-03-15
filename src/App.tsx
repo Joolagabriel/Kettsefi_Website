@@ -1,9 +1,10 @@
 import React from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import About from './components/About';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
-import Team from './components/Team';
+import Process from './components/Team';
 import Contact from './components/Contact';
 
 function App() {
@@ -11,10 +12,16 @@ function App() {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
+      <About />
       <Services />
       <CaseStudies />
-      <Team />
+      <Process />
       <Contact />
+      <footer className="bg-gray-50 py-8">
+        <div className="container mx-auto px-4 text-center text-gray-600">
+          © 2025 Kettsefi Technologies Inc. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }
