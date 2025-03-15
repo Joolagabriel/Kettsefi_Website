@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Database, Cloud } from 'lucide-react';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -24,19 +23,34 @@ const About = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="space-y-6 lg:pr-8 w-full"
+            className="space-y-6 lg:pr-8"
           >
             <h3 className="text-3xl font-bold text-gray-900">Our Story</h3>
-            <p className="text-lg text-gray-600 text-justify">
-              Founded by a seasoned IT professional with many years of IT experience, 
-              Kettsefi Technologies brings deep expertise across the full spectrum of 
-              modern technology solutions.
-            </p>
-            <p className="text-lg text-gray-600 text-justify">
-              Our founder's comprehensive background spans data engineering, cloud 
-              architecture, AI implementation, and custom software development, 
-              ensuring we deliver cutting-edge solutions that drive real business value.
-            </p>
+            <div className="space-y-6">
+              <p className="text-lg text-gray-600 text-justify leading-relaxed">
+                Founded by a seasoned IT professional, 
+                Kettsefi Technologies brings deep expertise across the full spectrum of 
+                modern technology solutions.
+              </p>
+              <p className="text-lg text-gray-600 text-justify leading-relaxed">
+                Our founder's comprehensive background spans data engineering, cloud 
+                architecture, AI implementation, and custom software development, 
+                ensuring we deliver cutting-edge solutions that drive real business value.
+              </p>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative h-full min-h-[400px] rounded-xl overflow-hidden shadow-xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+              alt="Team collaboration"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-transparent"></div>
           </motion.div>
         </div>
       </div>
